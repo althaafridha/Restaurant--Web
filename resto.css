@@ -1,0 +1,109 @@
+li {
+    list-style: none;
+    margin: 20px 0 20px 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    margin-left: -300px;
+    transition: 0.4s;
+  }
+
+  .active-main-content {
+    margin-left: 250px;
+  }
+
+  .active-sidebar {
+    margin-left: 0;
+  }
+
+  .card-background {
+    background-color: rgb(27, 27, 27);
+  }
+
+  #main-content {
+    transition: 0.4s;
+  }
+
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 99999;
+  }
+
+  .bg-custom {
+    background-color: #0d6efd;
+  }
+
+  .text-custom {
+    color: #0d6efd;
+  }
+
+  #status {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    z-index: 9999;
+    background-image: url("loding.gif");
+    background-position: center;
+    background-size: 100%;
+    margin: -50px 0 0 -50px;
+  }
+  .img-responsive{
+    width: auto;
+    height: 200px;
+  }
+
+  .ocean{
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
+    z-index: -1;
+  }
+
+  .ombak{
+    background: url("wave.svg");
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0,0,0);
+  }
+
+  @keyframes wave {
+    0%{
+      transform: translateX(0);
+    }
+    50% {transform: translateX(-25%);}
+    100%{
+      transform: translateX(-50%);
+    }
+    
+  }
+
+  .card.shadow:hover {
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.1);
+  }

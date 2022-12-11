@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <title>Canteen IDN</title>
+  <style>
+    li {
+      list-style: none;
+      margin: 20px 0 20px 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      position: fixed;
+      margin-left: -300px;
+      transition: 0.4s;
+    }
+
+    .active-main-content {
+      margin-left: 250px;
+    }
+
+    .active-sidebar {
+      margin-left: 0;
+    }
+
+    #main-content {
+      transition: 0.4s;
+    }
+
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #fff;
+      z-index: 99999;
+    }
+
+    .bg-custom {
+      background-color: #43a047;
+    }
+
+    .text-custom {
+      color: #43a047;
+    }
+
+    #status {
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      left: 40%;
+      top: 20%;
+      z-index: 9999;
+      background-image: url("loding.gif");
+      background-position: center;
+      background-size: 100%;
+      margin: -50px 0 0 -50px;
+    }
+    .img-responsive{
+      width: auto;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="preloader">
+    <div id="status">
+
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+      <button class="btn btn-light btn-sm" id="button-toggle">
+        <i class="bx  bxs-chevrons-right" id="icon"></i>
+      </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <div class="form-check form-switch">
+              <input class="form-check-input" style="height: 30px; width: 50px;" type="checkbox" id="switch" checked>
+              <label class="form-check-label ml-2 text-light" for="flexSwitchCheckChecked"><i class='bx bxs-moon bx-sm text-light' id="labelmode"></i></label>
+            </div>
+          </li>
+        </ul>
+        <form class="d-lg-flex mr-auto mr-lg-5">
+          <button class="btn btn-light text-custom" id="logout" type="button">Logout</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar shadow p-4 bg-light" id="sidebar">
+    <img src="IDN-.png" alt="logoidn" width="120" height="100" class="d-block mx-auto align-text-top" />
+    <ul>
+      <li>
+        <a href="appetizer.html" class="text-custom">
+          <i class='icon bx bx-baguette bx-sm'></i> Appetizer
+        </a>
+      </li>
+      <li>
+        <a href="#" class="text-custom">
+          <i class='bx bx-bowl-rice bx-sm'></i> Main Course
+        </a>
+      </li>
+      <li>
+        <a href="#" class="text-custom">
+          <i class='bx bxs-wine'></i> Dessert
+        </a>
+      </li>
+      <li>
+        <a href="#" class="text-custom">
+          <i class='bx bx-popsicle'></i> Snack
+        </a>
+      </li>
+      <li>
+        <a href="cabang.html" class="text-custom">
+          <i class='bx bx-home'></i> Cabang
+        </a>
+      </li>
+      <li>
+        <a href="owner.html" class="text-custom">
+          <i class='bx bx-child'></i> Owner
+        </a>
+      </li>
+      <li>
+        <a href="sugestion.html" class="text-custom">
+          <i class='bx bx-child'></i> Suggestion
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="p-4" id="main-content">
+    <div class="container">
+      <h1 class="h1 text-center textcustom" style="font-family: Brush Script mt;">Welcome To Canteen IDN</h1>
+      <ul class="nav nav-pills mb-3 d-flex justify-content-evenly" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-indonesia"
+            type="button" role="tab" aria-controls="pills-indonesia" aria-selected="true">Indonesia</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-western"
+            type="button" role="tab" aria-controls="pills-western" aria-selected="false">Western</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-indonesia" role="tabpanel"
+          aria-labelledby="pills-indonesia-tab" tabindex="0">
+          <div class="row mb-3">
+            <div class="col-md-3">
+              <div class="card" style="width: 17rem;">
+                <img src="food/ayam bakar.png" class="card-img-top img-responsive" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Ayam Bakar</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.
+                    <a class="text-dark" data-bs-toggle="collapse" href="#ayam" role="button" aria-expanded="false"
+                      aria-controls="collapseExample">
+                      ...
+                    </a>
+                  <div class="collapse" id="ayam">
+                    the bulk of the card's content for the collapse component. This panel is hidden by default but
+                    revealed when the user activates the relevant trigger.
+                  </div>
+                  <b>Rp : 100.000</b>
+                  <br />
+                  <b>Rating</b>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  </p>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAyam">
+                    Detail
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="modalAyam" tabindex="-1" aria-labelledby="modayAyam" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="modalAyam">Resep Ayam Goreng</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <iframe src="https://en.wikipedia.org/wiki/Ayam_bakar" width="750" height="300"
+                            title="ayam desc" frameborder="0"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card" style="width: 17rem;">
+                <img src="food/Ayam_geprek-removebg-preview.png" class="card-img-top img-responsive">
+                <div class="card-body">
+                  <h5 class="card-title">Ayam Geprek</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.
+                    <a class="text-dark" data-bs-toggle="collapse" href="#ayamgeprek" role="button" aria-expanded="false"
+                      aria-controls="collapseExample">
+                      ...
+                    </a>
+                  <div class="collapse" id="miayam">
+                    the bulk of the card's content for the collapse component. This panel is hidden by default but
+                    revealed when the user activates the relevant trigger.
+                  </div>
+                  <b>Rp : 150.000</b>
+                  <br />
+                  <b>Rating</b>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  </p>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAyamgeprek">
+                    Detail
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="modalAyamgeprek" tabindex="-1" aria-labelledby="modayAyam" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="modalAyamgeprek">Resep Ayam Geprek</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <iframe src="https://en.wikipedia.org/wiki/Ayam_geprek" width="750" height="300"
+                            title="ayam desc" frameborder="0"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card" style="width: 17rem;">
+                <img src="food/sate ayam.png" class="card-img-top img-responsive" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Sate Ayam</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.
+                    <a class="text-dark" data-bs-toggle="collapse" href="#sateayam" role="button" aria-expanded="false"
+                      aria-controls="collapseExample">
+                      ...
+                    </a>
+                  <div class="collapse" id="nasgor">
+                    the bulk of the card's content for the collapse component. This panel is hidden by default but
+                    revealed when the user activates the relevant trigger.
+                  </div>
+                  <b>Rp : 200.000</b>
+                  <br />
+                  <b>Rating</b>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  </p>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalsateayam">
+                    Detail
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="modalsateayam" tabindex="-1" aria-labelledby="modayAyam" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="modalAyamsateayam">Resep Sate Ayam </h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <iframe src="https://id.wikipedia.org/wiki/Sate_ayam" width="750" height="300"
+                            title="ayam desc" frameborder="0"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card" style="width: 17rem;">
+                <img src="food/bubur ayam.png" class="card-img-top img-responsive" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Bubur Ayam</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.
+                    <a class="text-dark" data-bs-toggle="collapse" href="#buburayam" role="button" aria-expanded="false"
+                      aria-controls="collapseExample">
+                      ...
+                    </a>
+                  <div class="collapse" id="sop">
+                    the bulk of the card's content for the collapse component. This panel is hidden by default but
+                    revealed when the user activates the relevant trigger.
+                  </div>
+                  <b>Rp : 300.000</b>
+                  <br />
+                  <b>Rating</b>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  </p>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalbuburayam">
+                    Detail
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="modalbuburayam" tabindex="-1" aria-labelledby="modaybuburayam" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="modalbuburayam">Resep Bubur Ayam</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <iframe src="https://id.wikipedia.org/wiki/Bubur_ayam" width="750" height="300"
+                            title="ayam desc" frameborder="0"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="card" style="width: 17rem;">
+                <img src="food/mie ayam.png" class="card-img-top img-responsive" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Mie Ayam</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.
+                    <a class="text-dark" data-bs-toggle="collapse" href="#mieayam" role="button" aria-expanded="false"
+                      aria-controls="collapseExample">
+                      ...
+                    </a>
+                  <div class="collapse" id="chicken">
+                    the bulk of the card's content for the collapse component. This panel is hidden by default but
+                    revealed when the user activates the relevant trigger.
+                  </div>
+                  <b>Rp : 100.000</b>
+                  <br />
+                  <b>Rating</b>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  </p>
+                  </p>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalmieAyam">
+                    Detail
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="modalmieAyam" tabindex="-1" aria-labelledby="modayAyam" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="modalAyam">Resep Mie Ayam </h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <iframe src="https://id.wikipedia.org/wiki/Mie_Ayam" width="750" height="300"
+                            title="ayam desc" frameborder="0"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card" style="width: 17rem;">
+                <img src="food/nasi goreng.png" class="card-img-top img-responsive" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Nasi Goreng</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.
+                    <a class="text-dark" data-bs-toggle="collapse" href="#nasigoreng" role="button" aria-expanded="false"
+                      aria-controls="collapseExample">
+                      ...
+                    </a>
+                  <div class="collapse" id="satay">
+                    the bulk of the card's content for the collapse component. This panel is hidden by default but
+                    revealed when the user activates the relevant trigger.
+                  </div>
+                  <b>Rp : 100.000</b>
+                  <br />
+                  <b>Rating</b>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  </p>
+                  </p>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNasiGoreng">
+                    Detail
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="modalNasiGoreng" tabindex="-1" aria-labelledby="modayAyam" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="modalAyam">Resep Nasi Goreng</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <iframe src="https://id.wikipedia.org/wiki/Nasi_goreng" width="750" height="300"
+                            title="ayam desc" frameborder="0"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card" style="width: 17rem;">
+                <img src="food/otak otak .png" class="card-img-top img-responsive" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Otak Otak</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.
+                    <a class="text-dark" data-bs-toggle="collapse" href="#otakotak" role="button" aria-expanded="false"
+                      aria-controls="collapseExample">
+                      ...
+                    </a>
+                  <div class="collapse" id="lokngej">
+                    the bulk of the card's content for the collapse component. This panel is hidden by default but
+                    revealed when the user activates the relevant trigger.
+                  </div>
+                  <b>Rp : 100.000</b>
+                  <br />
+                  <b>Rating</b>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  </p>
+                  </p>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalOtakotak">
+                    Detail
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="modalOtakotak" tabindex="-1" aria-labelledby="modalOtakotak" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="modalOtakotak">Resep Otak Otak</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <iframe src="https://id.wikipedia.org/wiki/Otak-otak" width="750" height="300"
+                            title="ayam desc" frameborder="0"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card" style="width: 17rem;">
+                <img src="food/zyro-image.png" class="card-img-top d-block mx-auto img-responsive" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Rendang</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.
+                    <a class="text-dark" data-bs-toggle="collapse" href="#rendang" role="button" aria-expanded="false"
+                      aria-controls="collapseExample">
+                      ...
+                    </a>
+                  <div class="collapse" id="renfang">
+                    the bulk of the card's content for the collapse component. This panel is hidden by default but
+                    revealed when the user activates the relevant trigger.
+                  </div>
+                  <b>Rp : 100.000</b>
+                  <br />
+                  <b>Rating</b>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  </p>
+                  </p>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalrendang">
+                    Detail
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="modalrendang" tabindex="-1" aria-labelledby="modalrendang" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="modalrendang">Resep Rendang</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <iframe src="https://id.wikipedia.org/wiki/Rendang" width="750" height="300"
+                            title="ayam desc" frameborder="0"></iframe>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="pills-western" role="tabpanel" aria-labelledby="pills-western-tab" tabindex="0">
+          <div class="row mb-3">
+            <div class="col-md-3">
+              <div class="card" style="width: 17rem;">
+                <img src="/food/Screenshot_2022-11-01_at_14.45.18-removebg-preview.png" class="card-img-top img-responsive" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Ayam Goreng</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.
+                    <a class="text-dark" data-bs-toggle="collapse" href="#goyeng" role="button" aria-expanded="false"
+                      aria-controls="collapseExample">
+                      ...
+                    </a>
+                  <div class="collapse" id="goyeng">
+                    the bulk of the card's content for the collapse component. This panel is hidden by default but
+                    revealed when the user activates the relevant trigger.
+                  </div>
+                  <b>Rp : 100.000</b>
+                  <br />
+                  <b>Rating</b>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  </p>
+                  </p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card" style="width: 17rem;">
+                <img src="./food/ayam.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Sate Ayam</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.
+                    <a class="text-dark" data-bs-toggle="collapse" href="#maya" role="button" aria-expanded="false"
+                      aria-controls="collapseExample">
+                      ...
+                    </a>
+                  <div class="collapse" id="maya">
+                    the bulk of the card's content for the collapse component. This panel is hidden by default but
+                    revealed when the user activates the relevant trigger.
+                  </div>
+                  <b>Rp : 100.000</b>
+                  <br />
+                  <b>Rating</b>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  </p>
+                  </p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card" style="width: 17rem;">
+                <img src="./food/jengkol.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Semur Jengkol</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.
+                    <a class="text-dark" data-bs-toggle="collapse" href="#jenglot" role="button" aria-expanded="false"
+                      aria-controls="collapseExample">
+                      ...
+                    </a>
+                  <div class="collapse" id="jenglot">
+                    the bulk of the card's content for the collapse component. This panel is hidden by default but
+                    revealed when the user activates the relevant trigger.
+                  </div>
+                  <b>Rp : 100.000</b>
+                  <br />
+                  <b>Rating</b>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  </p>
+                  </p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card" style="width: 17rem;">
+                <img src="./food/jengkol.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Rendang</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.
+                    <a class="text-dark" data-bs-toggle="collapse" href="#jengkos" role="button" aria-expanded="false"
+                      aria-controls="collapseExample">
+                      ...
+                    </a>
+                  <div class="collapse" id="jengkos">
+                    the bulk of the card's content for the collapse component. This panel is hidden by default but
+                    revealed when the user activates the relevant trigger.
+                  </div>
+                  <b>Rp : 100.000</b>
+                  <br />
+                  <b>Rating</b>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  <i class='bx bxs-star text-warning'></i>
+                  </p>
+                  </p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="card" style="width: 17rem;">
+                  <img src="./food/ayam.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Ayam Goreng</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.
+                      <a class="text-dark" data-bs-toggle="collapse" href="#chick" role="button" aria-expanded="false"
+                        aria-controls="collapseExample">
+                        ...
+                      </a>
+                    <div class="collapse" id="chick">
+                      the bulk of the card's content for the collapse component. This panel is hidden by default but
+                      revealed when the user activates the relevant trigger.
+                    </div>
+                    <b>Rp : 100.000</b>
+                    <br />
+                    <b>Rating</b>
+                    <i class='bx bxs-star text-warning'></i>
+                    <i class='bx bxs-star text-warning'></i>
+                    <i class='bx bxs-star text-warning'></i>
+                    </p>
+                    </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card" style="width: 17rem;">
+                  <img src="./food/ayam.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Sate Ayam</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.
+                      <a class="text-dark" data-bs-toggle="collapse" href="#babsel" role="button" aria-expanded="false"
+                        aria-controls="collapseExample">
+                        ...
+                      </a>
+                    <div class="collapse" id="babsel">
+                      the bulk of the card's content for the collapse component. This panel is hidden by default but
+                      revealed when the user activates the relevant trigger.
+                    </div>
+                    <b>Rp : 100.000</b>
+                    <br />
+                    <b>Rating</b>
+                    <i class='bx bxs-star text-warning'></i>
+                    <i class='bx bxs-star text-warning'></i>
+                    <i class='bx bxs-star text-warning'></i>
+                    </p>
+                    </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card" style="width: 17rem;">
+                  <img src="./food/jengkol.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Semur Jengkol</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.
+                      <a class="text-dark" data-bs-toggle="collapse" href="#semura" role="button" aria-expanded="false"
+                        aria-controls="collapseExample">
+                        ...
+                      </a>
+                    <div class="collapse" id="semura">
+                      the bulk of the card's content for the collapse component. This panel is hidden by default but
+                      revealed when the user activates the relevant trigger.
+                    </div>
+                    <b>Rp : 100.000</b>
+                    <br />
+                    <b>Rating</b>
+                    <i class='bx bxs-star text-warning'></i>
+                    <i class='bx bxs-star text-warning'></i>
+                    <i class='bx bxs-star text-warning'></i>
+                    </p>
+                    </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="card" style="width: 17rem;">
+                  <img src="./food/jengkol.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Rendang</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.
+                      <a class="text-dark" data-bs-toggle="collapse" href="#food" role="button" aria-expanded="false"
+                        aria-controls="collapseExample">
+                        ...
+                      </a>
+                    <div class="collapse" id="food">
+                      the bulk of the card's content for the collapse component. This panel is hidden by default but
+                      revealed when the user activates the relevant trigger.
+                    </div>
+                    <b>Rp : 100.000</b>
+                    <br />
+                    <b>Rating</b>
+                    <i class='bx bxs-star text-warning'></i>
+                    <i class='bx bxs-star text-warning'></i>
+                    <i class='bx bxs-star text-warning'></i>
+                    </p>
+                    </p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer py-3 bg-custom">
+      <div class="container text-center">
+        <span class="text-light">Copyright © Althaaf Ridha </span>
+      </div>
+    </footer>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js "
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin=" anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+      <script>
+      $(document).ready(function () {
+        $('#status').fadeOut(10000);
+        $('#preloader').delay(1000).fadeOut(1000);
+        $('body').delay(500).css({
+          'overflow': 'visible'
+        });
+      })
+      // untuk memasukan dan mengeluarkan sidebar
+      document.getElementById('button-toggle').addEventListener('click', () => {
+        document.getElementById('sidebar').classList.toggle('active-sidebar')
+        document.getElementById('main-content').classList.toggle('active-main-content')
+      })
+
+      $('#button-toggle').click(function () {
+        $('#icon').toggleClass('bx  bxs-chevrons-right bx bxs-chevrons-left')
+      })
+
+      $('#switch').click(function() {
+        $('#labelmode').toggleClass('bxs-moon bx-moon')
+        $('body, .card').toggleClass('bg-dark')
+        $('#textmode, .card').toggleClass('text-light')
+      })
+
+      $('#logout').click(function() {
+            Swal.fire({
+              icon: 'question',
+              title: 'apakah kamu ingin logout ?',
+              showCancelButton: true,
+              confirmButtonText: 'ok',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                window.location = "loginregister.html";
+              } else if (result.isDenied) {
+                Swal.fire('Changes are not saved', '', 'info')
+              }
+            })
+          });
+
+    </script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
